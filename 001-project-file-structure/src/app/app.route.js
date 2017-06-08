@@ -13,8 +13,17 @@
         templateUrl: 'app/states/home/home.html',
         controller: 'HomeController',
         controllerAs: 'homeCtrl'
+      })
+      .state ('login', {
+        url: '/login',
+        templateUrl: 'app/states/login/login.html',
+        controller: 'LoginController',
+        controllerAs: 'loginCtrl'
+      })
+      .state ('dashboard', {
+        url: '/dashboard',
+        templateUrl: 'app/states/dashboard/dashboard.html'
       });
-
     $urlRouterProvider.otherwise('/');
   }
 
