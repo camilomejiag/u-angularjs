@@ -1,0 +1,14 @@
+
+<section class="home-view d-flex align-items-center">
+	<div class="jumbotron center">
+	    <h1 class="display-3">{{loginCtrl.title}}</h1>
+	    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
+	    <form name="myForm" ng-submit="myForm.$valid && loginCtrl.Login()" novalidate>
+	    	<input type="text" ng-model="loginCtrl.name" placeholder="Insert your Username" required /><br><br>
+	    	<input type="password" ng-model="loginCtrl.password" placeholder="Insert your password" required /><br><br>
+	    	<p><input type="submit" class="btn btn-lg btn-success" href="" value="Login" /></p>
+	    </form>
+	    <!--<p>Form is {{myForm.$valid}}</p>-->
+	</div>
+</section>
