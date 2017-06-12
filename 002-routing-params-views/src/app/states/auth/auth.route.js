@@ -26,20 +26,9 @@
        .state('signin', {
       	parent: 'auth',
       	url: '/signin',
-
         templateUrl: 'app/states/auth/signin/signin.html',
         controller: 'AuthSigninController',
         controllerAs: 'auSigninCtrl'
-      })
-       .state('dashboard', {
-        parent: 'auth',
-        url: '/dashboard',
-        params: {
-          activeUser: {}
-        },
-        templateUrl: 'app/states/auth/dashboard/dashboard.html',
-        controller: 'DashboardController',
-        controllerAs: 'dashboardCtrl'
       });
   }
 

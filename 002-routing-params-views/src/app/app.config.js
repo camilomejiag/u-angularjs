@@ -4,6 +4,7 @@
   angular
     .module('angularApp')
     .config(config);
+    
 
   /** @ngInject */
   function config($logProvider) {
