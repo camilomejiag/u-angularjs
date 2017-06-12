@@ -9,11 +9,11 @@
   function LoginController($log, $location) {
     var vm = this;
     vm.title = "Login";
-    vm.Login = Login;
+    vm.login = login;
     vm.name = "";
     vm.password = "";
 
-    function Login(){
+    function login(){
       $location.path('dashboard');
     }
   }
