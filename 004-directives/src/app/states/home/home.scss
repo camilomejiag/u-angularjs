@@ -10,4 +10,17 @@
 	.active {
 		background-color: rgba(158,158,158,0.2);
 	}
+	label {
+	color: rgba(0,0,0,0.38);
+	}
+	textarea {
+	border-color: rgba(0,0,0,0.38);
+	}
+	.favorite {
+		color: #000000;
+		font-size: 25px;
+		text-align: center;
+		border-top: 1px solid rgba(0,0,0,0.10);
+	}
 }
+
