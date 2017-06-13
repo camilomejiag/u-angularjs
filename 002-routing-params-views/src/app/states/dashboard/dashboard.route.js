@@ -22,12 +22,13 @@
       .state('config', {
         url: '/config',
         parent: 'dashboard',
-        params: {
-          number: {}
+        views: {
+          "main": {
+            templateUrl: 'app/states/dashboard/config/config.html',
+            controller: 'ConfigurationController',
+            controllerAs: 'configCtrl'
+          }
         },
-        templateUrl: 'app/states/dashboard/config/config.html',
-        controller: 'ConfigurationController',
-        controllerAs: 'configCtrl',
         resolve:{
           promiseObj:  function($http){
               return $http({method: 'GET', url: 'app/states/dashboard/config/config.json'});
@@ -37,19 +38,25 @@
       .state('detail', {
         url: '/detail',
         parent: 'dashboard',
-        params: {
-          number: {}
-        },
-        templateUrl: 'app/states/dashboard/detail/detail.html',
-        controller: 'DetailController',
-        controllerAs: 'detailCtrl'
+        views: {
+          "main": {
+            templateUrl: 'app/states/dashboard/detail/detail.html',
+            controller: 'DetailController',
+            controllerAs: 'detailCtrl'
+          }
+        }
+        
       })
       .state('main', {
         parent: 'dashboard',
         url: '/main',
-        templateUrl: 'app/states/dashboard/main/main.html',
+        views: {
+          "main": {
+            templateUrl: 'app/states/dashboard/main/main.html',
         controller: 'MainController',
         controllerAs: 'mainCtrl'
+          }
+        }
       });
 
   }

@@ -18,11 +18,11 @@
     vm.logout = logout;
 
     function details(numero){
-      $state.go('detail', {number:numero});
+      $state.go('detail');
     }
 
     function config(numero){
-      $state.go('config', {number:numero});
+      $state.go('config');
     }
 
     function main(){
