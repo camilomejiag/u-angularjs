@@ -16,11 +16,23 @@
         <div md-color-picker ng-model="homeCtrl.card.background" label="Background"></div>
 
         <div md-color-picker ng-model="homeCtrl.card.textColor" label="Text Color"></div>
+
+        <label>Title: </label>
+        <input ng-model="homeCtrl.card.title" label="Background" placeholder="Title goes here"></input>
+
+        <label>Description: </label>
+        <input ng-model="homeCtrl.card.description" label="Background" placeholder="Description goes here"></input>
+
+
+
+        <label>Message:</label>
+        <textarea ng-model="homeCtrl.card.text" label="Background" placeholder="Insert Message here"></textarea>
       </md-content>
     </form>
 
     <div flex="50">
       <md-subheader class="md-no-sticky">Card Directive</md-subheader>
+      <card></card>
       <md-subheader class="md-no-sticky">Favorite list</md-subheader>
     </div>
   </div>

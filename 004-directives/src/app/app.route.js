@@ -13,6 +13,10 @@
         templateUrl: 'app/states/home/home.html',
         controller: 'HomeController',
         controllerAs: 'homeCtrl'
+      })
+      .state('card', {
+        templateUrl: 'app/components/card/card.html',
+        parent: 'home'
       });
 
     $urlRouterProvider.otherwise('/');

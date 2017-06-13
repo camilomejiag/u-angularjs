@@ -12,6 +12,10 @@
     vm.icons = ['account_circle', 'home', 'alarm'];
     vm.card = {};
     vm.setIcon = setIcon;
+    vm.form = vm.form;
+    vm.title = vm.title;
+    //background
+    //textColor
 
     function setIcon(iconClass) {
       vm.card.icon = iconClass;
