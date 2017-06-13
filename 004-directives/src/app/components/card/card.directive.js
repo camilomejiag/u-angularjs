@@ -18,7 +18,7 @@
         title: '=',
         description: '=',
         color: '=',
-        favorite: "&"
+        favorite: "&favorite"
       },
       templateUrl: 'app/components/card/card.html'
     };

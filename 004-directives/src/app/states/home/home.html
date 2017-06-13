@@ -28,9 +28,9 @@
 
     <div flex="50">
       <md-subheader class="md-no-sticky">Card Directive</md-subheader>
-      <card title="homeCtrl.card.title" description="homeCtrl.card.description" background="homeCtrl.card.background" color="homeCtrl.card.color" icon="homeCtrl.card.icon"></card>
+      <card title="homeCtrl.card.title" description="homeCtrl.card.description" favorite="homeCtrl.favorite(fav)" background="homeCtrl.card.background" color="homeCtrl.card.color" icon="homeCtrl.card.icon"></card>
       <md-subheader class="md-no-sticky">Favorite list</md-subheader>
-      <md-subheader class="favorite" ng-repeat="fav in homeCtrl.favorite track by $index">
+      <md-subheader class="favorite" ng-repeat="fav in homeCtrl.favoriteL track by $index">
         {{fav}}  
       </md-subheader>
     </div>

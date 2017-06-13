@@ -10,6 +10,8 @@
     var vm = this;
     vm.title = vm.title;
     vm.textColor = vm.textColor;
+    vm.title = vm.title;
+    vm.favorite = vm.favorite;
   }
 
   

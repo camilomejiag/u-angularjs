@@ -13,7 +13,7 @@
   </md-card-content>
   <md-card-actions layout="row" layout-align="end center">
     <span>{{card.reservedBy}}</span>
-    <md-button class="md-icon-button" aria-label="Favorite" ng-click="fav(homeCtrl.card.title)">
+    <md-button class="md-icon-button" aria-label="Favorite" ng-click="card.favorite({fav : card.title})">
       <md-icon md-font-set="md" ng-style="{'color' : card.color}">favorite</md-icon>
     </md-button>
   </md-card-actions>
