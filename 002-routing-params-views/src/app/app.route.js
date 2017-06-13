@@ -12,6 +12,9 @@
         url: '/',
         templateUrl: 'app/states/home/home.html',
         controller: 'HomeController',
+        params: {
+          activeUser: {}
+        },
         controllerAs: 'homeCtrl'
       });
 
@@ -19,3 +22,4 @@
   }
 
 })();
+

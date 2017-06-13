@@ -11,7 +11,8 @@
     factory = {
     	registerUser: registerUser,
     	logIn:logIn,
-    	currentUser: currentUser
+    	currentUser: currentUser,
+      logOut: logOut
     };
 
     function registerUser(newUser){
@@ -64,7 +65,8 @@
     }
 
     function logOut(user){
-    	//...
+    	localStorage.setItem('currentUser', "");
+      //return true;
     }
 
     return factory;
