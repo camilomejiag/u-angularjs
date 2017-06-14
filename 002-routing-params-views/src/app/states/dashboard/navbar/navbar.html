@@ -1,0 +1,15 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="" ui-sref="home">Talos</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="" ui-sref="main">Main</a></li>
+      <li><a>Bienvenido, {{navbarCtrl.activeUser.name}}</a></li>
+      </ul>
+      <ul class="nav navbar-nav pull-right" id="main-navigation">
+        <!-- Logout si es una funcion y no un estado-->
+      <li><a href="" ng-click="navbarCtrl.logout()">Log Out</a></li>
+      </ul>
+  </div>
+  </nav>

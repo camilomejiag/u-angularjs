@@ -10,12 +10,20 @@
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'app/states/home/home.html',
-        controller: 'HomeController',
-        controllerAs: 'homeCtrl'
+        params: {
+          activeUser: {}
+        },
+        views: {
+          "general@": {
+            templateUrl: 'app/states/home/home.html',
+            controller: 'HomeController',
+            controllerAs: 'homeCtrl'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');
   }
 
 })();
+
