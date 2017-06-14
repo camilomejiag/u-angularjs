@@ -10,7 +10,11 @@
     $stateProvider
       .state('auth', {
         abstract: true,
-        template: '<section class="general-section" ui-view></section>',
+        views : {
+          'general@' : {
+            template: '<section class="general-section" ui-view></section>'
+          }
+        },
         url: '/auth',
       })
       .state('login', {

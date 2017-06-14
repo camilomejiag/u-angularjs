@@ -10,12 +10,16 @@
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'app/states/home/home.html',
-        controller: 'HomeController',
         params: {
           activeUser: {}
         },
-        controllerAs: 'homeCtrl'
+        views: {
+          "general@": {
+            templateUrl: 'app/states/home/home.html',
+            controller: 'HomeController',
+            controllerAs: 'homeCtrl'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');

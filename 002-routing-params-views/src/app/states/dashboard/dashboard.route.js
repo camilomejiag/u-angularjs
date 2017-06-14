@@ -10,14 +10,22 @@
     $stateProvider
       .state('dashboard', {
         abstract: true,
-        templateUrl: 'app/states/dashboard/dashboard.html',
         url: '/dashboard',
         params: {
           activeUser: {}
         },
-        controller: 'DashboardController',
-        controllerAs: 'dashboardCtrl'
-        
+        views: {
+          "navbar@": {
+            templateUrl: 'app/states/dashboard/navbar/navbar.html',
+            controller: 'NavbarController',
+            controllerAs: 'navbarCtrl'
+          },
+          "general@": {
+            templateUrl: 'app/states/dashboard/dashboard.html',
+            controller: 'DashboardController',
+            controllerAs: 'dashboardCtrl'
+          }
+        }
     })
       .state('config', {
         url: '/config',
@@ -45,7 +53,6 @@
             controllerAs: 'detailCtrl'
           }
         }
-        
       })
       .state('main', {
         parent: 'dashboard',
@@ -53,8 +60,8 @@
         views: {
           "main": {
             templateUrl: 'app/states/dashboard/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'mainCtrl'
+            controller: 'MainController',
+            controllerAs: 'mainCtrl'
           }
         }
       });
