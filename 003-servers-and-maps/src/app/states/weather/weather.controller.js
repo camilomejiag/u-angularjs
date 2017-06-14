@@ -6,27 +6,52 @@
     .controller('WeatherController', WeatherController);
 
   /** @ngInject */
-  function WeatherController($http, $scope, $mdDialog) {
+  function WeatherController($http, $scope, $mdDialog, WeatherService) {
     var vm = this;
     vm.marker = {};
-    vm.showAlert1 = showAlert1;
-    vm.showAlert2 = showAlert2;
-    vm.showAlert2 = showAlert3;
-    vm.showError = showError;
 
     //Talitos API Key
     vm.apiKey = '534eccb946ce639dbb41f82b8be15dcc';
     vm.kind = '0';
 
-    // Internal method
     //Alert from weather
-    function showAlert1(weather, weather2) {
-      alert = $mdDialog.alert({
-        title: 'Weather',
-        textContent: 'Weather description: ' + weather + ", and mainly: " + weather2,
-        ok: 'Close'
-      });
-
+    function showAlert(variable) {
+        console.log(variable);
+if (variable != undefined) {
+        if (vm.kind == 0) {
+          alert = $mdDialog.alert({
+            title: 'Weather',
+            textContent: 'Weather description: ' + variable.weather[0].description,
+            ok: 'Close'
+          });
+        } else if (vm.kind == 1) {
+          alert = $mdDialog.alert({
+            title: 'UV',
+            textContent: 'UV description: ' + variable.data,
+            ok: 'Close'
+          });
+        } else if (vm.kind == 2) {
+            if (variable.data == undefined) {
+              alert = $mdDialog.alert({
+                title: 'Pollution',
+                textContent: 'Pollution description: ',
+                ok: 'Close'
+              });
+            } else {
+                 alert = $mdDialog.alert({
+                    title: 'Error',
+                    textContent: 'Remember, Pollution and UV are on Beta. Please try again',
+                    ok: 'Close'
+                  });
+            }
+        } //if
+    } else {
+        alert = $mdDialog.alert({
+            title: 'Error',
+            textContent: 'Remember, Pollution and UV are on Beta. Please try again',
+            ok: 'Close'
+          });
+    }
       $mdDialog
         .show( alert )
         .finally(function() {
@@ -34,50 +59,6 @@
         });
     }
 
-    //Alert from UV
-    function showAlert2(weather) {
-      alert = $mdDialog.alert({
-        title: 'Weather',
-        textContent: 'UV: ' + weather,
-        ok: 'Close'
-      });
-
-      $mdDialog
-        .show( alert )
-        .finally(function() {
-          alert = undefined;
-        });
-    }
-
-    //Alert from Pollution
-    function showError(weather) {
-      alert = $mdDialog.alert({
-        title: 'Error',
-        textContent: '',
-        ok: 'Close'
-      });
-
-      $mdDialog
-        .show( alert )
-        .finally(function() {
-          alert = undefined;
-        });
-    }
-
-    //Alert from Pollution
-    function showAlert3(weather) {
-      alert = $mdDialog.alert({
-        title: 'Weather',
-        textContent: 'Pollution: ' + weather,
-        ok: 'Close'
-      });
-
-      $mdDialog
-        .show( alert )
-        .finally(function() {
-          alert = undefined;
-        });
-    }
 
     //Should we extend or use vm?
     angular.extend($scope, {
@@ -111,42 +92,12 @@
             draggable: false
         }
 
+        vm.var = WeatherService.consolelog(lat, lng, vm.kind);
+        showAlert(vm.var);
+
         vm.marker["newmarker"] = newmarker;
 
-        if(vm.kind == '0'){
-            //Remember Services
-            $http({
-                method: 'GET',
-                url: 'http://api.openweathermap.org/data/2.5/weather?APPID='+vm.apiKey+'&lat=' + lat + '&lon=' + lng + ''
-            }).then(function successCallback(response) {
-                //console.log(response.data); //Not a good practice 
-                showAlert1(response.data.weather[0].description, response.data.weather[0].main);
-            }, function errorCallback(response) {
-                showError();
-            });
-        }else if(vm.kind == '1'){
-            //Remember Services
-            $http({
-                method: 'GET',
-                url: 'http://api.openweathermap.org/v3/uvi/'+lat2+','+lng2+'/current.json?appid='+vm.apiKey
-            }).then(function successCallback(response) {
-                //console.log(response.data.data); //Not a good practice 
-                showAlert2(response.data.data);
-            }, function errorCallback(response) {
-                showError();
-            });
-        }else if(vm.kind == '2'){
-            //Remember Services
-            $http({
-                method: 'GET',
-                url: 'http://api.openweathermap.org/pollution/v1/co/'+lat2+','+lng2+'/current.json?appid='+vm.apiKey
-            }).then(function successCallback(response) {
-                //console.log(response.data.data[0].pressure); //Not a good practice 
-                showAlert3(response.data.data[0].pressure);
-            }, function errorCallback(response) {
-                showError();
-            });
-        }
+        
     });
 
   }
