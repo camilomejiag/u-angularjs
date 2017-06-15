@@ -12,11 +12,10 @@
         url: '/user-list',
         views:{
           'main': {
-            controller: 'UserListController',
-            templateUrl: 'app/states/dashboard/user-list/user-list.html',
-            controllerAs: 'userListCtrl'
+            template: '<user-list></user-list>'
           }
         },
+        //Resolve no quiere dar unas respuesta
         resolve: {
           users: function () {
             return [

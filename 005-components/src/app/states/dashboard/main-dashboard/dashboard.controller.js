@@ -17,7 +17,7 @@
         }
 
         function goToConfigMethod() {
-            $state.go('detail');
+            $state.go('config');
         }
     }
 })();
