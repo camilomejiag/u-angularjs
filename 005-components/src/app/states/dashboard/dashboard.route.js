@@ -16,9 +16,7 @@
                         template: '<section class="dashboard" ui-view="main"></section>'
                     },
                     "navbar@":{
-                        templateUrl: 'app/components/navbar/navbar.html',
-                        controller: 'NavbarController',
-                        controllerAs: 'navCtrl'
+                      template: '<navbar-component></navbar-component>'
                     }
                 },
                 onEnter: function(Auth, $state){
@@ -32,9 +30,7 @@
                 url: '/detail',
                 views:{
                     "main":{
-                        templateUrl: 'app/states/dashboard/detail/detail.html',
-                        controller: 'DashboardDetailController',
-                        controllerAs: 'dasDetailCtrl'
+                        template: '<detail-component></detail-component>'
                     }
                 }
             })
@@ -46,9 +42,7 @@
                 },
                 views:{
                     "main":{
-                        templateUrl: 'app/states/dashboard/main-dashboard/dashboard.html',
-                        controller: 'DashboardController',
-                        controllerAs: 'dasCtrl'
+                        template: '<dashboard-component></dashboard-component>'
                     }
                 }
             })
@@ -57,9 +51,7 @@
                 url: '/config',
                 views:{
                     "main@":{
-                        templateUrl: 'app/states/dashboard/dashboard/config.html',
-                        controller: 'DashboardConfigController',
-                        controllerAs: 'dasConfigCtrl'
+                        template: '<config-component></config-component>'
                     }
                 }
             });

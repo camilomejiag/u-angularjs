@@ -28,16 +28,12 @@
                 params: {
                     currentUser: {}
                 },
-                templateUrl: 'app/states/auth/login/login.html',
-                controller: 'AuthLoginController',
-                controllerAs: 'auLoginCtrl'
+                template: '<login-component></login-component>'
             })
             .state('signup', {
                 parent: 'auth',
                 url: '/signup',
-                templateUrl: 'app/states/auth/signup/signup.html',
-                controller: 'AuthSignUpController',
-                controllerAs: 'auSignupCtrl'
+                template: '<signup-component></signup-component>'
             });
     }
 
