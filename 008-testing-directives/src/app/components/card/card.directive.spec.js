@@ -6,15 +6,13 @@
     var suite = {};
     var $rootScope;
     var $compile;
-    var $timeout;
 
     beforeEach(module('angularApp'));
 
     beforeEach(inject(function ($injector, $templateCache) {
       $rootScope = $injector.get('$rootScope');
       $compile = $injector.get('$compile');
-      $timeout = $injector.get('$timeout');
-	    $templateCache.put('app/components/card/card.html', $templateCache.get('app/components/card/card.html'));
+      $templateCache.put('app/components/card/card.html', $templateCache.get('app/components/card/card.html'));
 
       $rootScope.card = {
         title : '',
@@ -36,7 +34,7 @@
         'icon="{{card.icon}}">'+
         '</card>';
 
-	}));
+    }));
 
     afterEach(function () {
       //suite.element.remove();
@@ -56,8 +54,8 @@
       $rootScope.card = {
         title : 'Favorite Card',
         description : 'Talos Business Card',
-        background : 'rgba(202, 162, 162, 1)',
-        textColor : 'rgba(23, 52, 110, 1)',
+        background : 'rgb(202, 162, 162)',
+        textColor : 'rgb(23, 52, 110)',
         favorite : function(title){
           return title;
         }
@@ -68,13 +66,8 @@
 
       expect(suite.element.find('.title').text()).toEqual($rootScope.card.title);
       expect(suite.element.find('.description').text()).toEqual($rootScope.card.description);
-      
-      //Timeout used because needs time to be setted
-      $timeout(function(){
-        expect(suite.element.find('.card').css('background-color')).toEqual($rootScope.card.background);
-        expect(suite.element.find('.card').css('color')).toEqual($rootScope.card.textColor);
-      },100);
-
+      expect(suite.element.css('background-color')).toEqual($rootScope.card.background);
+      expect(suite.element.css('color')).toEqual($rootScope.card.textColor);
       suite.element.find('.favorite').click();
       expect($rootScope.card.favorite).not.toBe(null);
 
