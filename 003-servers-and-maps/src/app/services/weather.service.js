@@ -9,14 +9,18 @@
   function WeatherService($http) {
     
     var vm = this;
+    var consolelog;
 
     //Talitos API Key
     vm.apiKey = '534eccb946ce639dbb41f82b8be15dcc';
     vm.kind = '0';
     vm.weather = vm.weather;
 
-    
-    return {consolelog: function(lat, lng, kind) {
+    return {
+      consolelog : consolelog
+    }
+
+    function consolelog(lat, lng, kind) {
         var lat2 = lat.toFixed(1);
         var lng2 = lng.toFixed(1);
           if(kind == '0'){
@@ -28,8 +32,8 @@
                 }, function errorCallback(response) {
                     //console.log("Not found, try again");
                 });
-        }
-     else if(kind == '1'){
+          }
+          else if(kind == '1'){
             $http({
                 method: 'GET',
                 url: 'http://api.openweathermap.org/v3/uvi/'+lat2+','+lng2+'/current.json?appid='+vm.apiKey
@@ -38,7 +42,7 @@
             }, function errorCallback(response) {
                 //console.log("Not found, try again");
             });
-        }else if(kind == '2'){
+          }else if(kind == '2'){
             $http({
                 method: 'GET',
                 url: 'http://api.openweathermap.org/pollution/v1/co/'+lat2+','+lng2+'/current.json?appid='+vm.apiKey
@@ -47,8 +51,9 @@
             }, function errorCallback(response) {
                 //console.log("Not found, try again");
             });
-        }
+          }
         return vm.weather
-  }
+    }
 
-}}})();
+  }})();
+//When creating the service do as John Papa service definition return { someFuction: someFuction } then define the function fuction someFuction(){ ... }
